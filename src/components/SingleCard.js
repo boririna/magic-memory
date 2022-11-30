@@ -1,16 +1,12 @@
 import "./SingleCard.css"
 
-export default function SingleCard({ cards }) {
+export default function SingleCard({ card }) {
   return (
-    <div className="card-grid">
-        {cards.map(card => (
-          <div className="card" key={card.id}>
-            <div>
-              <img className="front" src={card.src} alt="card front" />
-              <img className="back" src="/img/cover.png" alt="card back" />
-            </div>
-          </div>
-        ))}
+    <div className="card">
+      <div>
+        <img className="front" src={card.src} alt="card front" />
+        <img className="back" src="/img/cover.png" alt="card back" />
       </div>
+    </div>
   )
 }
