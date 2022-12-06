@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard.js';
 
@@ -32,6 +32,19 @@ function App() {
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
+
+  // compare 2 selected cards
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+      if (choiceOne.src === choiceTwo.src) {
+        console.log("It's a match")
+        resetTurn()
+      } else {
+        console.log("You missed")
+        resetTurn()
+      }
+    }
+  }, [choiceOne, choiceTwo])
 
   // reset choices and increase turn
   const resetTurn = () => {
